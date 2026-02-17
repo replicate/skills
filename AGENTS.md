@@ -2,13 +2,17 @@
 
 ## Purpose
 
-This repo publishes a single Agent Skills document for Replicate.
+This repo publishes Agent Skills documents for Replicate.
 
-Keep it short and focused: a human- and agent-readable guide to discovering models, inspecting schemas, running predictions, and handling outputs.
+Keep it short and focused: human- and agent-readable guides for finding, comparing, running, building, and deploying models.
 
 ## Files that matter
 
-- `skills/replicate/SKILL.md` is the canonical skill.
+- `skills/find-models/SKILL.md` covers discovery workflows.
+- `skills/compare-models/SKILL.md` covers model evaluation.
+- `skills/run-models/SKILL.md` covers prediction workflows.
+- `skills/build-models/SKILL.md` covers Cog builds.
+- `skills/deploy-models/SKILL.md` covers deployments and scaling.
 - `.mcp.json` points to the remote MCP server.
 - `.claude-plugin/` contains marketplace metadata for Claude Code.
 
