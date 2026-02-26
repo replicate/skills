@@ -17,9 +17,33 @@ jobs:
       - name: Run lint
         run: script/lint
 
+  test-snippets:
+    if: github.event_name == 'push' || !github.event.pull_request.head.repo.fork
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install npm dependencies
+        run: npm install --silent
+        working-directory: test
+      - name: Run snippet tests
+        env:
+          REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_API_TOKEN }}
+        run: python script/test_snippets.py
+
   publish-clawhub:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    needs: lint
+    needs: [lint, test-snippets]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

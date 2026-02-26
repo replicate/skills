@@ -1,0 +1,9 @@
+{
+  "name": "test",
+  "private": true,
+  "type": "commonjs",
+  "dependencies": {
+    "replicate": "^1.4.0",
+    "wrangler": "^4.0.0"
+  }
+}

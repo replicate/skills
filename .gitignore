@@ -2,3 +2,6 @@
 *.swp
 *.swo
 *~
+node_modules/
+__pycache__/
+*.greger
