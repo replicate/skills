@@ -59,7 +59,7 @@ GET  /v1/predictions                                          # List your predic
 ```
 
 The unified `POST /v1/predictions` endpoint accepts these `version` formats:
-- `owner/name` — official models (e.g. `black-forest-labs/flux-schnell`)
+- `owner/name` — official models (e.g. `black-forest-labs/flux-2-klein-9b`)
 - `owner/name:version_id` — community models with pinned version
 - `version_id` — raw 64-character version hash
 
@@ -92,7 +92,7 @@ Request:
 
 ```json
 {
-  "version": "black-forest-labs/flux-schnell",
+  "version": "black-forest-labs/flux-2-klein-9b",
   "input": {
     "prompt": "a cat wearing a top hat"
   },
@@ -107,7 +107,7 @@ Response:
 ```json
 {
   "id": "gm3qorzdhgbfurvjtvhg6dckhu",
-  "model": "black-forest-labs/flux-schnell",
+  "model": "black-forest-labs/flux-2-klein-9b",
   "version": "...",
   "input": {"prompt": "a cat wearing a top hat"},
   "output": null,

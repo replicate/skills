@@ -22,7 +22,7 @@ The `POST /v1/predictions` endpoint handles both. Pass `version` as `owner/name`
 curl -s -X POST \
   -H "Authorization: Bearer $REPLICATE_API_TOKEN" \
   -H "Content-Type: application/json" \
-  -d '{"version": "black-forest-labs/flux-schnell", "input": {"prompt": "a red panda in a bamboo forest", "num_outputs": 1}}' \
+  -d '{"version": "black-forest-labs/flux-2-klein-9b", "input": {"prompt": "a red panda in a bamboo forest", "num_outputs": 1}}' \
   https://api.replicate.com/v1/predictions | jq '{id, status}'
 ```
 
@@ -30,7 +30,7 @@ curl -s -X POST \
 import replicate
 
 prediction = replicate.predictions.create(
-    model="black-forest-labs/flux-schnell",
+    model="black-forest-labs/flux-2-klein-9b",
     input={"prompt": "a red panda in a bamboo forest", "num_outputs": 1},
 )
 print(prediction.id, prediction.status)
@@ -41,7 +41,7 @@ const Replicate = require("replicate");
 const replicate = new Replicate();
 
 const prediction = await replicate.predictions.create({
-  model: "black-forest-labs/flux-schnell",
+  model: "black-forest-labs/flux-2-klein-9b",
   input: { prompt: "a red panda in a bamboo forest", num_outputs: 1 },
 });
 console.log(prediction.id, prediction.status);
@@ -54,7 +54,7 @@ import replicate
 import time
 
 prediction = replicate.predictions.create(
-    model="black-forest-labs/flux-schnell",
+    model="black-forest-labs/flux-2-klein-9b",
     input={"prompt": "a red panda in a bamboo forest", "num_outputs": 1},
 )
 while prediction.status not in ("succeeded", "failed", "canceled"):
@@ -72,7 +72,7 @@ const Replicate = require("replicate");
 const replicate = new Replicate();
 
 let prediction = await replicate.predictions.create({
-  model: "black-forest-labs/flux-schnell",
+  model: "black-forest-labs/flux-2-klein-9b",
   input: { prompt: "a red panda in a bamboo forest", num_outputs: 1 },
 });
 while (!["succeeded", "failed", "canceled"].includes(prediction.status)) {
@@ -96,7 +96,7 @@ curl -s -X POST \
   -H "Authorization: Bearer $REPLICATE_API_TOKEN" \
   -H "Content-Type: application/json" \
   -H "Prefer: wait=60" \
-  -d '{"version": "black-forest-labs/flux-schnell", "input": {"prompt": "a red panda in a bamboo forest", "num_outputs": 1}}' \
+  -d '{"version": "black-forest-labs/flux-2-klein-9b", "input": {"prompt": "a red panda in a bamboo forest", "num_outputs": 1}}' \
   https://api.replicate.com/v1/predictions | jq '{id, status, output}'
 ```
 
@@ -112,7 +112,7 @@ If the model doesn't finish in time, the response returns the prediction in its 
 import replicate
 
 output = replicate.run(
-    "black-forest-labs/flux-schnell",
+    "black-forest-labs/flux-2-klein-9b",
     input={"prompt": "a red panda in a bamboo forest", "num_outputs": 1},
 )
 for item in output:
@@ -123,7 +123,7 @@ for item in output:
 const Replicate = require("replicate");
 const replicate = new Replicate();
 
-const output = await replicate.run("black-forest-labs/flux-schnell", {
+const output = await replicate.run("black-forest-labs/flux-2-klein-9b", {
   input: { prompt: "a red panda in a bamboo forest", num_outputs: 1 },
 });
 console.log(output);
@@ -164,7 +164,7 @@ prompts = [
 
 predictions = [
     replicate.predictions.create(
-        model="black-forest-labs/flux-schnell",
+        model="black-forest-labs/flux-2-klein-9b",
         input={"prompt": p, "num_outputs": 1},
     )
     for p in prompts
@@ -196,7 +196,7 @@ const prompts = [
 const predictions = await Promise.all(
   prompts.map((prompt) =>
     replicate.predictions.create({
-      model: "black-forest-labs/flux-schnell",
+      model: "black-forest-labs/flux-2-klein-9b",
       input: { prompt, num_outputs: 1 },
     }),
   ),
@@ -226,7 +226,7 @@ curl -s -X POST \
   -H "Authorization: Bearer $REPLICATE_API_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
-    "version": "black-forest-labs/flux-schnell",
+    "version": "black-forest-labs/flux-2-klein-9b",
     "input": {"prompt": "a red panda in a bamboo forest", "num_outputs": 1},
     "webhook": "https://example.com/webhook",
     "webhook_events_filter": ["completed"]
@@ -244,7 +244,7 @@ Replicate signs webhook requests. Validate using the `Webhook-ID`, `Webhook-Time
 import replicate
 
 prediction = replicate.predictions.create(
-    model="black-forest-labs/flux-schnell",
+    model="black-forest-labs/flux-2-klein-9b",
     input={"prompt": "a red panda in a bamboo forest", "num_outputs": 1},
 )
 cancelled = replicate.predictions.cancel(prediction.id)
@@ -256,7 +256,7 @@ const Replicate = require("replicate");
 const replicate = new Replicate();
 
 const prediction = await replicate.predictions.create({
-  model: "black-forest-labs/flux-schnell",
+  model: "black-forest-labs/flux-2-klein-9b",
   input: { prompt: "a red panda in a bamboo forest", num_outputs: 1 },
 });
 const cancelled = await replicate.predictions.cancel(prediction.id);
@@ -272,7 +272,7 @@ curl -s -X POST \
   -H "Authorization: Bearer $REPLICATE_API_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
-    "version": "black-forest-labs/flux-schnell",
+    "version": "black-forest-labs/flux-2-klein-9b",
     "input": {"prompt": "a red panda in a bamboo forest", "num_outputs": 1},
     "lifetime": "5m"
   }' \
@@ -289,7 +289,7 @@ Models that support streaming (typically language models) include a `stream` URL
 import replicate
 
 prediction = replicate.predictions.create(
-    model="meta/meta-llama-3-70b-instruct",
+    model="meta/meta-llama-3-8b-instruct",
     input={"prompt": "write a haiku about mountains"},
     stream=True,
 )
@@ -306,7 +306,7 @@ import replicate
 
 async def main():
     output = await replicate.async_run(
-        "black-forest-labs/flux-schnell",
+        "black-forest-labs/flux-2-klein-9b",
         input={"prompt": "a red panda in a bamboo forest", "num_outputs": 1},
     )
     for item in output:

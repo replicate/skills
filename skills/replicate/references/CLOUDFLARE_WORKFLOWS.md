@@ -54,7 +54,7 @@ export class ReplicatePipeline extends WorkflowEntrypoint {
     const keyframes = await Promise.all(
       prompts.map((prompt, i) =>
         step.do(`keyframe-${i}`, { retries: { limit: 3, delay: "5 seconds", backoff: "exponential" } }, async () => {
-          const output = await replicate.run("black-forest-labs/flux-2-klein-4b", {
+          const output = await replicate.run("black-forest-labs/flux-2-klein-9b", {
             input: { prompt, aspect_ratio: "16:9" },
           });
           return output.url();

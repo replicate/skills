@@ -41,7 +41,7 @@ Every model has an LLM-readable docs page:
 https://replicate.com/{owner}/{model}/llms.txt
 ```
 
-For example: <https://replicate.com/black-forest-labs/flux-schnell/llms.txt>
+For example: <https://replicate.com/black-forest-labs/flux-2-klein-9b/llms.txt>
 
 ## Reading model schemas
 
@@ -49,7 +49,7 @@ Every model exposes its input/output schema via the models API:
 
 ```bash
 curl -s -H "Authorization: Bearer $REPLICATE_API_TOKEN" \
-  https://api.replicate.com/v1/models/black-forest-labs/flux-schnell \
+  https://api.replicate.com/v1/models/black-forest-labs/flux-2-klein-9b \
   | jq '.latest_version.openapi_schema.components.schemas.Input.properties | to_entries[] | {name: .key, type: .value.type, description: .value.description}'
 ```
 

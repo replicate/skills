@@ -21,7 +21,7 @@ Replicate lets you run AI models with a cloud API. Thousands of models for image
 
 ## Key concepts
 
-- **Models** are identified as `owner/name` (e.g. `black-forest-labs/flux-schnell`).
+- **Models** are identified as `owner/name` (e.g. `black-forest-labs/flux-2-klein-9b`).
 - **Official models** are always warm, have stable APIs, and predictable pricing. Use `owner/name`.
 - **Community models** require a version: `owner/name:version_id`. They cold-boot and can be slow.
 - **Predictions** are individual model runs: `starting` → `processing` → `succeeded`/`failed`/`canceled`.
@@ -63,7 +63,7 @@ Always fetch a model's schema before running it. Schemas change.
 
 ```bash
 curl -s -H "Authorization: Bearer $REPLICATE_API_TOKEN" \
-  https://api.replicate.com/v1/models/black-forest-labs/flux-schnell \
+  https://api.replicate.com/v1/models/black-forest-labs/flux-2-klein-9b \
   | jq '.latest_version.openapi_schema.components.schemas.Input.properties | keys'
 ```
 
@@ -95,7 +95,7 @@ curl -s -X POST \
   -H "Authorization: Bearer $REPLICATE_API_TOKEN" \
   -H "Content-Type: application/json" \
   -H "Prefer: wait=60" \
-  -d '{"version": "black-forest-labs/flux-schnell", "input": {"prompt": "a cat wearing a top hat", "num_outputs": 1}}' \
+  -d '{"version": "black-forest-labs/flux-2-klein-9b", "input": {"prompt": "a cat wearing a top hat", "num_outputs": 1}}' \
   https://api.replicate.com/v1/predictions | jq '{id, status, output}'
 ```
 
@@ -103,7 +103,7 @@ curl -s -X POST \
 import replicate
 
 output = replicate.run(
-    "black-forest-labs/flux-schnell",
+    "black-forest-labs/flux-2-klein-9b",
     input={"prompt": "a cat wearing a top hat", "num_outputs": 1},
 )
 for item in output:
@@ -114,7 +114,7 @@ for item in output:
 const Replicate = require("replicate");
 const replicate = new Replicate();
 
-const output = await replicate.run("black-forest-labs/flux-schnell", {
+const output = await replicate.run("black-forest-labs/flux-2-klein-9b", {
   input: { prompt: "a cat wearing a top hat", num_outputs: 1 },
 });
 console.log(output);

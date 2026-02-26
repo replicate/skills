@@ -61,7 +61,7 @@ export default {
     const replicate = new Replicate({ auth: env.REPLICATE_API_TOKEN });
 
     let prediction = await replicate.predictions.create({
-      model: "black-forest-labs/flux-2-klein-4b",
+      model: "black-forest-labs/flux-2-klein-9b",
       input: { prompt: "a red panda in a bamboo forest", aspect_ratio: "16:9" },
     });
 
@@ -99,7 +99,7 @@ export default {
 
     const outputs = await Promise.all(
       prompts.map((prompt) =>
-        replicate.run("black-forest-labs/flux-schnell", {
+        replicate.run("black-forest-labs/flux-2-klein-9b", {
           input: { prompt, num_outputs: 1 },
         }),
       ),

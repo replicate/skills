@@ -11,12 +11,12 @@ import replicate
 import time
 
 pred_a = replicate.predictions.create(
-    model="black-forest-labs/flux-schnell",
-    input={"prompt": "a sunrise over mountains", "num_outputs": 1},
+    model="black-forest-labs/flux-2-klein-9b",
+    input={"prompt": "a sunrise over mountains"},
 )
 pred_b = replicate.predictions.create(
-    model="black-forest-labs/flux-schnell",
-    input={"prompt": "a sunset over mountains", "num_outputs": 1},
+    model="black-forest-labs/flux-2-klein-9b",
+    input={"prompt": "a sunset over mountains"},
 )
 
 def wait(pred_id):
@@ -37,12 +37,12 @@ const replicate = new Replicate();
 
 const [predA, predB] = await Promise.all([
   replicate.predictions.create({
-    model: "black-forest-labs/flux-schnell",
-    input: { prompt: "a sunrise over mountains", num_outputs: 1 },
+    model: "black-forest-labs/flux-2-klein-9b",
+    input: { prompt: "a sunrise over mountains" },
   }),
   replicate.predictions.create({
-    model: "black-forest-labs/flux-schnell",
-    input: { prompt: "a sunset over mountains", num_outputs: 1 },
+    model: "black-forest-labs/flux-2-klein-9b",
+    input: { prompt: "a sunset over mountains" },
   }),
 ]);
 
@@ -68,8 +68,8 @@ Model output URLs can be passed directly as file inputs to the next model. They'
 import replicate
 
 image_output = replicate.run(
-    "black-forest-labs/flux-schnell",
-    input={"prompt": "a serene mountain lake at dawn", "num_outputs": 1},
+    "black-forest-labs/flux-2-klein-9b",
+    input={"prompt": "a serene mountain lake at dawn"},
 )
 image_url = image_output[0].url
 
@@ -120,33 +120,4 @@ Translate a video's speech to another language:
 
 For PDFs or documents, use OCR to extract text, then use your own language model to process it. There's no need to run an LLM on Replicate for text processing — you're already running in one.
 
-## Suggested models by task
 
-Always search for the latest models — these are current recommendations and may be outdated:
-
-| Task | Model |
-|------|-------|
-| Image generation (quality) | `black-forest-labs/flux-1.1-pro` |
-| Image generation (fast) | `black-forest-labs/flux-schnell` |
-| Image editing / transformation | `black-forest-labs/flux-kontext-pro` |
-| Image inpainting | `ideogram-ai/ideogram-v3-balanced` |
-| Image upscaling | `topazlabs/image-upscale` |
-| Background removal | `851-labs/background-remover` |
-| Image captioning / vision | `anthropic/claude-4-sonnet` |
-| Object detection | `adirik/grounding-dino` |
-| Image segmentation | `schananas/grounded_sam` |
-| Video generation (best) | `google/veo-3` |
-| Video generation (fast/cheap) | `pixverse/pixverse-v4.5` |
-| Image to video | `pixverse/pixverse-v4.5` |
-| Video upscaling | `topazlabs/video-upscale` |
-| Lip sync (image + audio) | `zsxkib/sonic` |
-| Lip sync (video + audio) | `kwaivgi/kling-lip-sync` |
-| Text generation / chat | `anthropic/claude-4-sonnet` |
-| Speech synthesis | `minimax/speech-02-hd` |
-| Voice cloning | `minimax/voice-cloning` |
-| Speech transcription | `openai/whisper` |
-| Music generation | `meta/musicgen` |
-| Sound effects for video | `zsxkib/mmaudio` |
-| OCR / document extraction | `datalab-to/ocr` |
-
-Always fetch the model schema before using any of these — interfaces change.
