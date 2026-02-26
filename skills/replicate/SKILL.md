@@ -48,7 +48,8 @@ Follow these guideliness when running models:
 - Validate input parameters against schema constraints (minimum, maximum, enum values). Don't generate values that violate them.
 - When unsure about a parameter value, use the model's default example or omit the optional parameter.
 - Don't set optional inputs unless you have a reason to. Stick to the required inputs and let the model's defaults do the work.
-- Use HTTPS URLs for file inputs whenever possible. You can also send base64-encoded files, but they should be avoided.
+- Use HTTPS URLs for file inputs whenever possible. You can technically also send base64-encoded files, but they should be avoided because they can be large and cause issues with request size limits.
+- When running Replicate models from a development environment (localhost), consider using a tool like ngrok to create public-facing HTTPS URLs for your inputs. This will keep parity between your development and production environments and avoid issues with file input URLs being inaccessible to Replicate's servers.
 - Fire off multiple predictions concurrently. Don't wait for one to finish before starting the next.
 - Output file URLs expire after 1 hour, so back them up if you need to keep them, using a service like Cloudflare R2.
 - Webhooks are a good mechanism for receiving and storing prediction output.
