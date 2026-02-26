@@ -71,45 +71,6 @@ curl -s -H "Authorization: Bearer $REPLICATE_API_TOKEN" \
 
 ## Available collections
 
-| Slug | Name | Description |
-|------|------|-------------|
-| `official` | Official AI models | Always available, stable, and predictably priced |
-| `text-to-image` | Generate images | Generate images and photos |
-| `text-to-video` | Generate videos | Generate videos |
-| `image-to-video` | Generate videos from images | Generate videos from images |
-| `video-editing` | Edit your videos | Edit your videos |
-| `ai-enhance-videos` | Enhance videos | Enhance videos |
-| `video-to-text` | Caption videos | Caption videos |
-| `image-editing` | Edit any image | Edit any image |
-| `super-resolution` | Upscale images with super resolution | Upscale images |
-| `ai-image-restoration` | Restore images | Restore images |
-| `remove-backgrounds` | Remove backgrounds | Remove backgrounds from images and videos |
-| `sketch-to-image` | Turn sketches into images | Transform rough sketches into polished visuals |
-| `ai-face-generator` | Generate images from a face | Generate images from a face |
-| `face-swap` | Create realistic face swaps | Replace faces across images |
-| `generate-anime` | Generate anime-style images and videos | Create anime-style content |
-| `generate-emoji` | Generate emojis | Generate custom emojis from text or images |
-| `control-net` | Control image generation | Control image generation |
-| `language-models` | Large Language Models (LLMs) | Chat, generation, and NLP tasks |
-| `vision-models` | Vision models | Image understanding, captioning, and detection |
-| `text-to-speech` | Generate speech | Text-to-speech and voice cloning |
-| `speech-to-text` | Transcribe speech to text | Transcribe speech to text |
-| `ai-music-generation` | Generate music | Generate music |
-| `sing-with-voices` | Create songs with voice cloning | Create songs with voice cloning |
-| `lipsync` | Lipsync videos | Generate lipsync videos |
-| `speaker-diarization` | Speaker diarization | Identify speakers from audio and video |
-| `text-recognition-ocr` | OCR to extract text from images | Optical character recognition |
-| `text-classification` | Classify text | Classify text by sentiment, topic, intent, or safety |
-| `ai-detect-objects` | Object detection and segmentation | Detect and segment objects in images and video |
-| `detect-nsfw-content` | Detect NSFW content | Detect NSFW content in images and text |
-| `embedding-models` | Embedding models | Embedding models for search and analysis |
-| `3d-models` | Create 3D content | Create 3D content |
-| `utilities` | Media utilities | Auto-caption, watermark, frame extraction, and more |
-| `flux` | FLUX family of models | FLUX image generation and editing models |
-| `flux-fine-tunes` | Flux fine-tunes | Community-trained FLUX fine-tunes |
-| `flux-kontext-fine-tunes` | Kontext fine-tunes | Custom Kontext image models |
-| `qwen-image-fine-tunes` | Qwen-Image fine-tunes | Community-trained Qwen image fine-tunes |
-| `wan-video` | WAN family of models | WAN image-to-video and text-to-video models |
-| `try-for-free` | Try AI models for free | Free-tier models for video, image, upscaling, and restoration |
+To see the current list of collections, use the API to [list all collections](#list-all-collections).
 
 The search API also returns matching collections alongside model results.
