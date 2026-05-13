@@ -198,7 +198,7 @@ In `cog.yaml`:
 ```yaml
 build:
   run:
-    - curl -o /usr/local/bin/pget -L "https://github.com/replicate/pget/releases/download/v0.8.2/pget_linux_x86_64"
+    - curl -o /usr/local/bin/pget -L "https://github.com/replicate/pget/releases/download/v0.11.1/pget_Linux_x86_64"
     - chmod +x /usr/local/bin/pget
 ```
 
@@ -366,7 +366,7 @@ If your model supports fine-tuning, add `train: train.py:train` to `cog.yaml` an
 - Pin Python and every dependency. Use `numpy<2` if your torch is older.
 - Always describe every input. Schemas without descriptions are unusable on the web UI.
 - Use `cog.Path` for files and `cog.Secret` for tokens.
-- Pin `pget` to a specific release (`v0.8.2`) for reproducibility.
+- Pin `pget` to a specific release (`v0.11.1`) for reproducibility.
 - Set `HF_HUB_ENABLE_HF_TRANSFER=1` whenever you call HuggingFace Hub.
 - Set `TRANSFORMERS_OFFLINE=1` after weights are loaded to prevent runtime HF lookups.
 - Test with `cog predict` before pushing. If it doesn't work locally, it won't work in production.
