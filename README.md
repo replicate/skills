@@ -7,6 +7,8 @@ Skills included:
 - **find-models** — search for models, browse collections, read schemas, pick the right model
 - **compare-models** — evaluate models by cost, speed, quality, and capabilities
 - **run-models** — create predictions, poll, use webhooks, stream, handle files, run concurrently
+- **build-models** — package custom models with Cog (cog.yaml, predict.py, weights, local serving)
+- **publish-models** — push models to Replicate with cog push / cog-safe-push and CI/CD releases
 - **prompt-images** — prompting techniques for image generation and editing models
 - **prompt-videos** — prompting techniques for video generation and editing models
 
